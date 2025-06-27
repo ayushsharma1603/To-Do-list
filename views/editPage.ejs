@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#212121] min-h-screen text-white px-4 sm:px-6 lg:px-8">
+    <div class="flex relative justify-start items-center flex-col pt-10">
+    <!-- FORM SECTION -->
+        
+    </div>
+
+    <div class="m-7">
+        <a href="/" class="absolute top-2 left-2 cursor-pointer px-4 py-2 rounded-tl-3xl text-blue-500 hover:text-blue-600 transition">
+            &larr; Go back
+        </a>
+    </div>
+
+    <div class=" w-full max-w-md">     
+            <form id="taskform" action="/edited/<%=title%>.txt" class="space-y-4" method="post">
+                <input
+                type="text"
+                name="title"
+                placeholder="Enter new Title"
+                value="<%= title %>"
+                class="text-4xl w-full h-full px-4 py-2 bg-[#212121] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <textarea
+                name="desc"
+                placeholder="Enter New data"
+                class="w-full px-4 py-2 bg-[#212121] text-white rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                rows="4"
+                ><%= content %></textarea>
+                <input
+                type="submit"
+                value="Edit task"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md cursor-pointer transition"
+                />
+            </form>
+        </div>
+
+    
+
+
+
+</body>
+
+</html>

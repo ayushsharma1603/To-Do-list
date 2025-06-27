@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#212121] min-h-screen text-white px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col items-center pt-10">
+    <!-- FORM SECTION -->
+    <div class="w-full max-w-md">
+      <h1 class="text-3xl font-bold text-center mb-6">Todo List</h1>
+      <form id="taskform" action="/add-task" class="space-y-4" method="post">
+        <input
+          type="text"
+          name="title"
+          placeholder="Enter title"
+          class="w-full px-4 py-2 bg-zinc-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <textarea
+          name="desc"
+          placeholder="Enter your task details"
+          class="w-full px-4 py-2 bg-zinc-800 text-white rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows="4"
+        ></textarea>
+        <input
+          type="submit"
+          value="Create Task"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md cursor-pointer transition"
+        />
+      </form>
+    </div>
+
+    <!-- TASK LIST SECTION -->
+    
+
+    <div class="tasks w-full max-w-7xl mt-10 flex flex-wrap gap-6 ">
+      <!-- Task Box -->
+
+        <% files.forEach(file => { %>
+            <%  const title = file.split(".")[0] %>
+            <% const re =`read/${file}` %>
+            <% const del =`delete/${file}` %>
+            <% const f=file %>
+            <div class="task w-full sm:w-[48%] md:w-[30%] lg:w-[23%] px-4 py-4 rounded-md bg-zinc-800">
+
+              <div class="flex relative justify-between">
+                <h1 class="text-white text-xl font-semibold tracking-tight"><%=title%></h1>
+                <a  class=" px-0 py-0 m-0" href="/edit/<%=f%>"><img width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/edit--v1.png" alt="edit--v1"/></a>
+              </div>
+
+              
+              <div class="flex justify-between">
+                <a href="<%=re%>" class="text-blue-500 inline-block mt-2">View</a>
+                <a href="<%=del%>" class="text-blue-500 inline-block mt-2">Remove</a>
+              </div>
+                
+            </div>
+        <% }); %>
+      
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>
